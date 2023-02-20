@@ -1,25 +1,24 @@
 #include <iostream>
-#include <queue>
+#include <array>
 using namespace std;
 
 int main()
 {
-    int p, m, n, a = 0;
-    queue <int> q;
-    cin >> p >> m;
+    int p, m, n, aux, x = 0;
+        cin >> p >> aux;
+        int a[p];
     for (int i=0;i<p;i++)
     {
-        cin >> n;
-        q.push(n);
+        cin >> a[i];
     }
+    m=a[(aux-1)];
     for (int i=0;i<p;i++)
     {
-        if (q.front()>m)
+        if (a[i]>=m)
         {
-            a++;
+            x++;
         }
-        q.pop();
     }
-    cout << a << "\n";
+    cout << x << "\n";
     return 0;
 }
