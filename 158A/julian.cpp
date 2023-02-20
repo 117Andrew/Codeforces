@@ -14,7 +14,7 @@ int main()
     m=a[(aux-1)];
     for (int i=0;i<p;i++)
     {
-        if (a[i]>=m)
+        if (a[i]>=m && a[i]!=0)
         {
             x++;
         }
