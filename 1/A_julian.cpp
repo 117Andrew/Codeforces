@@ -1,16 +1,14 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
-int m, n, a, l, x=0;
+double m, n, a;
+int x=0;
     cin >> m >> n >> a;
-    l= m+n;
-    while (l>0)
-    {
-        l-=a;
-        x++;
-    }
+    x=ceil(m/a)*ceil(n/a);
+    
     cout << x << "\n";
     return 0;
 }
