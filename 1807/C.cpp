@@ -19,7 +19,7 @@ int main()
                 cont++;
                 if (s[j] == s[k])
                 {
-                    if (cont%2 == 0)
+                    if (cont%2 == 1)
                         cont = 0;
                     else
                     {
