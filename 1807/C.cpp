@@ -16,9 +16,8 @@ int main()
         {
             for (int k = 0; k < n; k++)
             {
-                if (s[j] != s[k])
-                    cont++;
-                else
+                cont++;
+                if (s[j] == s[k])
                 {
                     if (cont%2 == 0)
                         cont = 0;
