@@ -1,19 +1,22 @@
 #include <iostream>
+#include <stdio.h>
 #include <vector>
+
+#define forn(i, n) for(int i = 0; i < n; i ++)
 
 using namespace std;
 
+typedef long long ll;
+
 int main()
 {
-vector < long int> v, suma;
+vector <ll> v, suma;
 int t, n, x;
-long int rta, aux;
+ll rta, aux;
     cin >> t;
-    cout << "\n";
-    for (int i = 0; i < t; i++)
+    forn(i, t)
     {
         cin >> n;
-        cout << "\n";
         v.clear();
         suma.clear();
         aux = 0, rta = 0;
@@ -39,6 +42,6 @@ long int rta, aux;
             }
         else
             rta = v[0] * v[1];
-        cout << rta << "\n" << endl;
+        cout << rta << '\n';
     }
 }
