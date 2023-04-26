@@ -1,47 +1,58 @@
+// El archivo B.in contiene el input del problema B.
+//  para utilizarlo ejecutar por terminal "./B < B.in"
 #include <iostream>
-#include <stdio.h>
 #include <vector>
 
 #define forn(i, n) for(int i = 0; i < n; i ++)
-
+//Definimos la funcion "forn" que ejecuta un for de i hasta n
 using namespace std;
 
 typedef long long ll;
+// Cambiamos el token long long por ll
 
 int main()
 {
-vector <ll> v, suma;
 int t, n, x;
-ll rta, aux;
+ll rta;
     cin >> t;
     forn(i, t)
     {
+        vector <ll> V, N, P;
         cin >> n;
-        v.clear();
-        suma.clear();
-        aux = 0, rta = 0;
+        rta = 0;
         for (int j = 0; j < n; j++)
         {
             cin >>x;
-            v.push_back(x);
+            V.push_back(x);
         }
-        if (v.size() > 2)
+        if (V.size() > 2)
             {
                 for (int k = 0; k < n; k++)
                 {
-                    for (int l = 0; l < n; l++)
+                    if (V[k] > 0)
                     {
-                        if (k != l)
-                        {    
-                            if (aux < v[k]*v[l])
-                                aux = v[k]*v[l];
+                        if (V[k] >= P[0])
+                        {
+                            P[1] = P[0];
+                            P[0] = V[k];
+                        }
+                    }
+                    else
+                    {
+                        if (V[k] <= P[0])
+                        {
+                            N[1] = N[0];
+                            N[0] = V[k];
                         }
                     }
                 }
-                 rta = aux;
+                if (N[0]*N[1] > P[0]*P[1])
+                    rta = N[0]*N[1];
+                else
+                    rta = P[0]*P[1];
             }
         else
-            rta = v[0] * v[1];
+            rta = V[0] * V[1];
         cout << rta << '\n';
     }
 }
