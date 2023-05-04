@@ -2,6 +2,7 @@
 //  para utilizarlo ejecutar por terminal "./B < B.in"
 #include <iostream>
 #include <vector>
+#include <array>
 
 #define forn(i, n) for(int i = 0; i < n; i ++)
 //Definimos la funcion "forn" que ejecuta un for de i hasta n
@@ -17,7 +18,11 @@ ll rta;
     cin >> t;
     forn(i, t)
     {
-        vector <ll> V, N, P;
+        vector <ll> V;
+        array <ll, 2> N, P, R;
+        N[0] = 0, N[1] = 0;
+        P[0] = 0, P[1] = 0;
+        R[0] = 0, R[1] = 0;
         cin >> n;
         rta = 0;
         for (int j = 0; j < n; j++)
@@ -31,20 +36,29 @@ ll rta;
                 {
                     if (V[k] > 0)
                     {
-                        if (V[k] >= P[0])
+                        if (V[k] > P[0] && P[0] == 0)
+                            P[0] = V[k];
+                        else if (V[k] > P[0])
                         {
                             P[1] = P[0];
                             P[0] = V[k];
                         }
+                        else if (V[k] > P[1] && P[0] != 0)
+                            P[1] = V[k];
                     }
-                    else
+                    else if (V[k] < 0)
                     {
-                        if (V[k] <= P[0])
-                        {
+                        if (V[k] < N[0] && N[0] == 0)    
+                            N[0] = V[k];
+                        else if (V[k] < N[0])    
+                        {    
                             N[1] = N[0];
                             N[0] = V[k];
                         }
+                        else if (V[k] > N[1] && N[0] != 0)
+                            N[1] = V[k];
                     }
+
                 }
                 if (N[0]*N[1] > P[0]*P[1])
                     rta = N[0]*N[1];
